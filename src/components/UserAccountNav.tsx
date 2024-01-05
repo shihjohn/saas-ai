@@ -79,18 +79,18 @@ const UserAccountNav = ({ email, imageUrl, name }: UserAccountNavProps) => {
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          {subscriptionPlan?.isSubscribed ? (
+          {/* {subscriptionPlan?.isSubscribed ? (
             <Link href="/dashboard/billing">Manage Subscription</Link>
           ) : (
-            // <Link href="/pricing">
-            //   <Gem className="text-blue-600 h-5 w-5 mr-2" />
-            //   Upgrade
-            // </Link>
-            <div onClick={proModal.onOpen}>
+            <Link href="/pricing">
               <Gem className="text-blue-600 h-5 w-5 mr-2" />
               Upgrade
-            </div>
-          )}
+            </Link> */}
+          <div onClick={proModal.onOpen}>
+            <Gem className="text-blue-600 h-5 w-5 mr-2" />
+            Upgrade
+          </div>
+          {/* )} */}
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
