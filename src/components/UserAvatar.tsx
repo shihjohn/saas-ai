@@ -4,9 +4,9 @@ import { getServerSession } from "next-auth/next";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const UserAvatar = async () => {
-  const session = await getServerSession(options);
-
-  const user = session?.user;
+  // const session = await getServerSession(options);
+  // const user = session?.user;
+  const user = { image: "", name: "Test" };
 
   return (
     <Avatar className="h-8 w-8">

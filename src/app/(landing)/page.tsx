@@ -52,7 +52,6 @@ export default function Home() {
             className: "mt-5 bg-[#02aab0] hover:bg-[#00cdac]",
           })}
           href="/dashboard"
-          target="_blank"
         >
           Get started <ArrowRight className="ml-2 h-5 w-5" />
         </Link>

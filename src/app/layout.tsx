@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { ModalProvider } from "@/components/modal-provider";
 import { ToasterProvider } from "@/components/toaster-provider";
+import SessionProvider from "@/components/session-provider";
+import { getServerSession } from "next-auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +15,12 @@ export const metadata: Metadata = {
   description: "AI Platform",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
   return (
     <html lang="en">
       <body
@@ -32,11 +35,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <>
+          <SessionProvider session={session}>
             <ModalProvider />
             <ToasterProvider />
             {children}
-          </>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>

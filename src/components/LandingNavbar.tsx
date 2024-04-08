@@ -12,6 +12,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import ModeToggle from "./ModeToggle";
 import UserAccountNav from "./UserAccountNav";
 import MobileNav from "./MobileNav";
+import { usePathname } from "next/navigation";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
@@ -47,7 +48,7 @@ const Navbar = async () => {
                   </Link>
                 </div>
                 <Link
-                  href="/api/auth/signin"
+                  href="/login"
                   className={buttonVariants({
                     variant: "ghost",
                     size: "sm",
@@ -56,12 +57,14 @@ const Navbar = async () => {
                   Sign in
                 </Link>
                 {/* <a
+                  href="/dashboard"
                   className={buttonVariants({
                     size: "sm",
                   })}
                 >
                   Get started <ArrowRight className="ml-1.5 h-5 w-5" />
                 </a> */}
+                <ModeToggle />
               </>
             ) : (
               <>

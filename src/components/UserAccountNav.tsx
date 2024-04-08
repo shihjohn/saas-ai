@@ -1,5 +1,6 @@
 "use client";
 // import { getUserSubscriptionPlan } from "@/lib/stripe";
+import { signOut } from "next-auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,7 +30,7 @@ const UserAccountNav = ({ email, imageUrl, name }: UserAccountNavProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="overflow-visible">
-        <Button className="rounded-full h-8 w-8 aspect-square bg-slate-400 mx-2">
+        <Button className="rounded-full h-8 w-8 aspect-square mx-2">
           <Avatar className="relative w-8 h-8">
             {imageUrl ? (
               <div className="relative aspect-square h-full w-full">
@@ -43,7 +44,7 @@ const UserAccountNav = ({ email, imageUrl, name }: UserAccountNavProps) => {
             ) : (
               <AvatarFallback>
                 <span className="sr-only">{name}</span>
-                <Icons.user className="h-4 w-4 text-zinc-900" />
+                <Icons.user className="h-4 w-4 text-zinc-900 dark:text-zinc-200" />
               </AvatarFallback>
             )}
           </Avatar>
@@ -96,12 +97,13 @@ const UserAccountNav = ({ email, imageUrl, name }: UserAccountNavProps) => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem className="cursor-pointer">
-          <Link
+          <div
             className="flex items-center w-full font-semibold"
-            href="/api/auth/signout"
+            onClick={() => signOut({ callbackUrl: "/", redirect: true })}
           >
+            {/* href="/api/auth/signout" */}
             Sign out
-          </Link>
+          </div>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
