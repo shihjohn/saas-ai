@@ -18,6 +18,15 @@ export const getUserById = async (id: string) => {
   }
 };
 
+export const getUserByToken = async (token: string) => {
+  try {
+    const user = await User.findOne({ emailVerificationToken: token });
+    return user;
+  } catch {
+    return null;
+  }
+};
+
 export const getVerificationTokenByEmail = async (email: string) => {
   try {
     const user = await User.findOne({ email });

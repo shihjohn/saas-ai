@@ -18,7 +18,7 @@ const Register = () => {
     <div className="flex min-h-screen items-center justify-center">
       <Card className="w-[400px]">
         <CardHeader>
-          <CardTitle className="flex gap-1 text-rose-500">
+          <CardTitle className="flex gap-1 text-rose-500 justify-center">
             <MdErrorOutline />
             Oops! Something went wrong!
           </CardTitle>
